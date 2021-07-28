@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+      p {
+        width: 750*375.
+      }
+    
+  </style>
+</head>
+
+<body>
+  <div @click='dianji'></div>
+  <script>
+    // 快速排序
+    // 快排是取中间值,然后去和别的比较,比他小的放左边,比他大的放右边
+
+    // function quick(arr) {
+    //   if (arr.length <= 1) {
+    //     return 1
+    //   }
+    //   // 取出中间值在原有的项把他移除
+    //   let middleIndex = Math.floor(arr.length / 2);
+    //   let middleValue = arr.splice(middleIndex, 1)[0];
+    //   console.log(middleValue);
+
+    //   // 准备左右两个数组,循环数组的每一项,小的放左,大的放右边
+    //   let aryLeft = [];
+    //   let aryRight = [];
+    //   for (var i = 0; i < arr.length; i++) {
+    //     let item = arr[i];
+    //     item < middleValue ? aryLeft.push(item) : aryRight.push(item)
+    //     console.log(arr);
+    //   }
+    //   return quick(aryLeft).concat(middleValue, quick(aryRight))
+    // }
+
+
+    function quick(arr) {
+      if (arr.length <= 1) {
+        return arr
+      }
+      var middleIndex = Math.floor(arr.length / 2);
+      var middelValue = arr.splice(middleIndex, 1)[0];
+      console.log(middelValue);
+      var arrLeft = [];
+      var arrRight = [];
+      for (var i = 0; i < arr.length; i++) {
+        var item = arr[i];
+        item < middelValue ? arrLeft.push(item) : arrRight.push(item)
+      }
+      console.log(arrLeft);
+      console.log(arrRight);
+
+      return quick(arrLeft).concat(middelValue, quick(arrRight))
+    }
+
+    
+    var arr = [1, 5, 2, 55, 4, 77, 88, 99];
+    console.log(quick(arr));
+
+  </script>
+
+</body>
+
+</html>
