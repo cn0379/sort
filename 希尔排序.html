@@ -1,0 +1,39 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-08-25 23:51:46
+ * @LastEditTime: 2021-07-29 23:22:24
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \taskf:\sort\希尔排序.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function shellSort(arr) {
+      //逐步降低步长直至为1为止
+      for (let shellWidth = arr.length / 2; shellWidth > 0; shellWidth / 2) {
+        //根据步长，将数组进行分组，并使用插入排序法进行交换排序
+        //从增量大小的那组数据进行插入排序
+        for (let atom = shellWidth; atom < arr.length; atom++) {
+          //atom-shellWidth  表示和该元素同组的隔壁相邻的元素，对于同一组的元素，进行插入排序
+          while (atom - shellWidth > 0 && arr[atom - shellWidth] > arr[atom]) {
+            swap(arr, atom - shellWidth, atom);
+            atom = atom - shellWidth;
+          }
+        }
+      }
+    }
+
+  </script>
+</body>
+
+</html>
