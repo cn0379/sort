@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Follow Mouse</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      position: fixed;
+      font-size: 50px;
+      line-height: 60px;
+      cursor: default;
+      /* animation: up .6s both; */
+      /* animation-fill-mode: ; */
+    }
+
+    @keyframes up1 {
+      0% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(.2) translateY(-65px);
+      }
+    }
+
+    @keyframes up2 {
+      0% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(.3) translateY(-40px);
+      }
+    }
+
+    @keyframes up3 {
+      0% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(.1) translateY(-20px);
+      }
+    }
+
+    @keyframes up4 {
+      0% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(.3) translateY(-50px);
+      }
+    }
+
+    @keyframes up5 {
+      0% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(.1) translateY(-65px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <script>
+    var H = 0;
+    setInterval(function () {
+      if (H == 300) {
+        H = 0;
+      }
+      H++;
+    }, 10);
+
+    window.onmousemove = function () {
+      var dEle = document.createElement('div');
+      dEle.innerText = '😂';
+      dEle.style.top = event.pageY - 30 + "px";
+      dEle.style.left = event.pageX - 20 + "px";
+      dEle.style.color = "hsl(" + H + ", 80%, 70%)";
+      var i = Math.round(Math.random() * 4) + 1;
+
+      dEle.style.animation = `up${i} .6s both`;
+      document.body.appendChild(dEle);
+      setTimeout(function () {
+        dEle.remove();
+      }, 400);
+    }
+
+
+  </script>
+
+
+</body>
+
+</html>

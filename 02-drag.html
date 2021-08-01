@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drag</title>
+  <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(50%);
+        width: 300px;
+        height: 300px;
+        background-color: lightblue;
+      }
+  </style>
+</head>
+
+<body>
+  <div id="box" ></div>
+
+  <script>
+    var boxEle = document.querySelector('#box')
+    console.log(boxEle)
+    boxEle.onmousedown = function(e) {
+      let mousex = e.clientX - boxEle.offsetLeft;
+      let mousey = e.clientY - boxEle.offsetTop;
+      console.log(11)
+      window.onmousemove = function (e) {
+        boxEle.style.left = e.clientX - mousex + 'px';
+        boxEle.style.top = e.clientY - mousey + 'px';
+      }
+      boxEle.onmouseup = function () {
+        window.onmousemove = null
+      }
+    }
+
+  </script>
+
+</body>
+</html>

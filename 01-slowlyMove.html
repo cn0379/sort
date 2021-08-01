@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>slowlyMove Package</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		#box {
+			position: relative;
+			width: 200px;
+			height: 200px;
+			background-color: blueviolet;
+		}
+
+		button {
+			margin-left: 100px;
+			padding: 12px 40px;
+			font-size: 16px;
+			letter-spacing: .1rem;
+			background-color: #fff;
+			border-radius: 3px;
+			border: 1px solid #999;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="box"></div>
+
+	<button id="btn1">target 900</button>
+	<button id="btn2">target 400</button>
+
+	<script type="text/javascript">
+		btn1.onclick = function () {
+			slowlyMove(box, 900);
+		}
+		btn2.onclick = function () {
+			slowlyMove(box, 400);
+		}
+
+		function slowlyMove(ele, target) {
+			if (ele.timer) {
+				clearInterval(ele.timer)
+			}
+			ele.timer = setInterval(function () {
+				var start = ele.offsetLeft;
+
+				var step = (target - start) / 10;
+
+				if (Math.abs(step) < 1) {
+					step = step > 0 ? 1 : Math.floor(step)
+				}
+				ele.style.left = start + step + 'px';
+				if (step + start == target) {
+					clearInterval(ele.timer)
+					ele.timer = null;
+				}
+			}, 1000 / 60)
+		}
+
+
+	</script>
+</body>
+
+</html>

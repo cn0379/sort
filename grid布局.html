@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 100%;
+      display: grid;
+      /* grid-template-columns: repeat(3,33.3%); */
+      /* grid-template-rows: repeat(3,33.3%); */
+      /* grid-template-rows: 1fr 1fr; */
+      /* grid-template-columns: repeat(auto-fill, 100px); */
+      /* grid-template-columns: 150px 1fr 2fr; */
+      /* grid-template-columns: 100px auto 100px; */
+      grid-template-areas: "header header header"
+                     "main main sidebar"
+                     "footer footer footer";
+    }
+
+    p {
+      margin: 1px;
+      height: 100px;
+      color: #fff;
+      line-height: 100px;
+      text-align: center;
+      background-color: rosybrown;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <p>1</p>
+    <p>
+      2
+    </p>
+    <p class="header" >3</p>
+    <p>3</p>
+    <p>3</p>
+    <p>3</p>
+    <p>3</p>
+    <p>3</p>
+    <p>3</p>
+    <p>3</p>
+    <p>3</p>
+    <p>3</p>
+    <p>3</p>
+    <p>3</p>
+    <p>3</p>
+    <p>3</p>
+    <p>3</p>
+    <p>3</p>
+    <p>3</p>
+    <p>3</p>
+    <p>3</p>
+    <p>3</p>
+    <p>3</p>
+    <p>3</p>
+    <p>3</p>
+  </div>
+</body>
+
+</html>
