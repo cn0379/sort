@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>柱状图排序</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      position: relative;
+      width: 950px;
+      height: 350px;
+      margin: 30px auto;
+      border: 1px solid #000;
+      list-style: none;
+    }
+
+    li {
+      position: absolute;
+      bottom: 0;
+      width: 10px;
+      height: 100px;
+      background-color: aquamarine;
+    }
+
+    .act {
+      background-color: lightblue;
+    }
+
+    .done {
+      background-color: rgb(126, 159, 170);
+    }
+
+    button {
+      margin-left: 100px;
+      padding: 12px 40px;
+      font-size: 16px;
+      letter-spacing: .1rem;
+      background-color: #fff;
+      border-radius: 3px;
+      border: 1px solid #999;
+    }
+  </style>
+</head>
+
+<body>
+
+  <ul>
+    <li></li>
+  </ul>
+
+  <button id="create" >生成柱状图</button>
+
+  <script>
+
+    var ulEle = document.querySelector('ul')
+
+    create.onclick = function () {
+      var str  = '';
+      var hArr = [];
+
+      for(var i = 0; i < 10; i++) {
+        var h = rdNumber()
+        if(hArr.includes(h)){
+          i--;
+        }else {
+          hArr.push(h)
+          // str += `<li style="left: +${20 + 30*i}+'px'; height:+${h}+'px'" ></li>`
+						str += '<li style="left: '+ (10 + 20*i) +'px; height: '+ h +'px;"></li>';
+        }
+      }
+      ulEle.innerHTML = str;
+    }
+
+    function rdNumber () {
+      return Math.round(Math.random() * 14)* 20 + 40;
+    }
+
+    function slowMove () {
+      var target = '';
+      var start = '';
+
+
+
+
+      
+    }
+
+  </script>
+
+
+</body>
+
+</html>
